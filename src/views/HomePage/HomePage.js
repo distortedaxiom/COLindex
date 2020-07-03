@@ -4,10 +4,14 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Header from '../../components/Header/Header'
+import Parrallax from '../../components/Parallax/Parallax'
 
 export default function HomePage(props) {
 
     return (
-        <Header />
+        <div>
+            <Header />
+            <Parrallax />
+        </div>
     )
 }
