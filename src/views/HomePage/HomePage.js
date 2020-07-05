@@ -5,13 +5,33 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Header from '../../components/Header/Header'
 import Parrallax from '../../components/Parallax/Parallax'
+import GridContainer from '../../components/Grid/GridContainer'
+import GridItem from '../../components/Grid/GridItem'
+
+import styles from '../../style/Components'
 
 export default function HomePage(props) {
+
+    const useStyles = makeStyles(styles);
+    const classes = useStyles();
 
     return (
         <div>
             <Header />
-            <Parrallax />
+            <Parrallax image={require('../../assets/images/parrallaxbg8.jpeg')}>
+                <div className={classes.container}>
+                <GridContainer>
+                    <GridItem>
+                    <div className={classes.brand}>
+                        <h1 className={classes.title}>Cost of Living Index</h1>
+                        <h3>
+                            Compare wages and cost in cities across the United States
+                        </h3>
+                    </div>
+                    </GridItem>
+                </GridContainer>
+                </div>
+            </Parrallax>
         </div>
     )
 }

@@ -9,12 +9,19 @@ export default function Parrallax(props) {
 
     const classes = useStyles();
 
+    const parallaxClasses = classNames({
+        [classes.parallax]: true,
+      });
+
+    const { filter, className, children, style, image, small } = props;
+
     return (
         <div
-            className={classes.parallax}
+            className={parallaxClasses}
             style={{
                 backgroundImage: "url(" + props.image + ")",
             }}>
+                {children}
         </div>
     )
 
