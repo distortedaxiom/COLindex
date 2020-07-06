@@ -34,7 +34,7 @@ export default function HomePage(props) {
                 <div className={classes.container}>
                 <GridContainer>
                     <GridItem>
-                        <h3>Hello</h3>
+                        <h3>Testing</h3>
                     </GridItem>
                 </GridContainer>
                 </div>
