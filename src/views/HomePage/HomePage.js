@@ -7,8 +7,10 @@ import Header from '../../components/Header/Header'
 import Parrallax from '../../components/Parallax/Parallax'
 import GridContainer from '../../components/Grid/GridContainer'
 import GridItem from '../../components/Grid/GridItem'
+import ActionContainer from '../../components/Parallax/ActionContainer'
 
 import styles from '../../style/Components'
+import ActionStyle from "../../style/Parrallax/ActionContainerStyle";
 
 export default function HomePage(props) {
 
@@ -34,7 +36,7 @@ export default function HomePage(props) {
                 <div className={classes.container}>
                 <GridContainer>
                     <GridItem>
-                        <h3>Testing3</h3>
+                        <ActionContainer />
                     </GridItem>
                 </GridContainer>
                 </div>

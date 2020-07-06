@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
-import styles from '../../style/ParallaxStyle'
+import styles from '../../style/Parrallax/ParallaxStyle'
 
 const useStyles = makeStyles(styles);
 
