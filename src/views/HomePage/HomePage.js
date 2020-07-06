@@ -24,10 +24,17 @@ export default function HomePage(props) {
                     <GridItem>
                     <div className={classes.brand}>
                         <h1 className={classes.title}>Cost of Living Index</h1>
-                        <h3>
+                        <h3 className={classes.subtitle}>
                             Compare wages and cost in cities across the United States
                         </h3>
                     </div>
+                    </GridItem>
+                </GridContainer>
+                </div>
+                <div className={classes.container}>
+                <GridContainer>
+                    <GridItem>
+                        <h3>Hello</h3>
                     </GridItem>
                 </GridContainer>
                 </div>

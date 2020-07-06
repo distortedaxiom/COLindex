@@ -2,7 +2,7 @@ const containerFluid = {
     paddingRight: "15px",
     paddingLeft: "15px",
     marginRight: "auto",
-    marginLeft: "auto",
+    marginLeft: "10vw",
     width: "100%"
   };
 
@@ -36,8 +36,15 @@ const title = {
     fontfamily: `'Roboto Slab', serif`
 }
 
+const subtitle = {
+    fontSize: "1.313rem",
+    maxWidth: "500px",
+    margin: "10px 0 0"
+}
+
 export default {
     container,
     brand,
-    title
+    title,
+    subtitle
 };
