@@ -1,6 +1,9 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
+
+
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -23,9 +26,11 @@ export default function Header(props) {
                 COL Index
             </Button>
             <Grid>
+                <Link to='/dashboard'>
                 <Button color="inherit">
-                    Home
+                    Dashboard
                 </Button>
+                </Link>
                 <Button color="inherit">
                     Login
                 </Button>
