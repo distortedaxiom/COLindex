@@ -1,15 +1,10 @@
-import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
-import "mapbox-gl/dist/mapbox-gl.css"
 import React, {useState} from "react";
-import ReactMapGL from "react-map-gl";
-import Geocoder from "react-map-gl-geocoder";
+import { Map, Marker, TileLayer } from 'react-leaflet'
 import {createRef} from 'react'
 
 import Header from '../../components/Header/Header'
 
 export default function Dashboard(props) {
-
-    const MAPBOX_TOKEN = "pk.eyJ1IjoiZGlzdG9ydGVkYXhpb20iLCJhIjoiY2tjYjgzeTBkMXFjYzJ6cWVneWU4MGtzOCJ9.8TDKLf0BqMqd8kK38G-R0w"
 
     const [viewport, setViewPort] = useState({
         latitude: 39.8097343,
@@ -25,15 +20,10 @@ export default function Dashboard(props) {
         <div>
             <Header />
             <div>
-                <ReactMapGL
-                    ref={mapRef}
-                    {...viewport}
-                    mapboxApiAccessToken={MAPBOX_TOKEN}
-                    onViewportChange={viewport => {
-                        setViewPort(viewport)
-                    }}>
-                <Geocoder mapRef={mapRef} mapboxApiAccessToken={MAPBOX_TOKEN} />
-                </ReactMapGL>
+            <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
             </div>
         </div>
     )
