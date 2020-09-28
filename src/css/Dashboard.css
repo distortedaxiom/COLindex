@@ -1,0 +1,14 @@
+.dashboard-body-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.sidebar-container {
+    display: flex;
+    width: 30%;
+    border-right: 1px solid black
+}
+
+.map-menu-container {
+    width: 100%;
+}
