@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 import Header from '../../components/Header/Header'
@@ -12,17 +12,21 @@ import Sidebar from '../../components/Dashboard/Sidebar'
 
 export default function Dashboard(props) {
 
-    const [value, setValue] = React.useState(0);
-    const []
+    const [value, setValue] = useState(0)
+    const [stateData, setStateData] = useState([])
 
     const tabChange = (event, newValue) => {
         setValue(newValue)
     }
 
-    axios.get('https://colindex-api.herokuapp.com/api/states/')
+    useEffect(async () => {
+        await axios.get('https://colindex-api.herokuapp.com/api/states/')
         .then(res => {
-            console.log(res)
+            setStateData(res.data)
         })
+    }, [])
+
+    console.log(stateData)
 
     return (
         <div>
