@@ -5,7 +5,7 @@ export default function PreferencesView(props) {
 
     return (
         <div>
-            <TableList />
+            <TableList data={props}/>
         </div>
     )
 

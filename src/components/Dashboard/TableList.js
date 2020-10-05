@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -29,30 +29,36 @@ const rows = [
 
 export default function TableList(props) {
 
+    const [propsData, setPropsData] = useState([])
+
     const classes = useStyles();
+
+    const data = props.data.data
+
+    console.log(data)
 
     return (
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>State</TableCell>
+              <TableCell align="right">Living Wage</TableCell>
+              <TableCell align="right">Minimum Wage</TableCell>
+              <TableCell align="right">Poverty Wage</TableCell>
+              <TableCell align="right">Required Income After Taxes</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {data.map((data) => (
+              <TableRow key={data.state}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {data.state}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">{data.livingwage1a0c_avg}</TableCell>
+                <TableCell align="right">{data.minimumwage1a0c_avg}</TableCell>
+                <TableCell align="right">{data.povertywage1a0c_avg}</TableCell>
+                <TableCell align="right">{data.reqincomeaftertaxes1a0c_avg}</TableCell>
               </TableRow>
             ))}
           </TableBody>

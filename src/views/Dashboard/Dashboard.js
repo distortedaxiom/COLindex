@@ -35,7 +35,7 @@ export default function Dashboard(props) {
                 <div className="map-menu-container">
                     <MenuTab tabChange={tabChange} value={value}/>
                     {value == 0 &&
-                        <TableListView />
+                        <TableListView data={stateData}/>
                     }
                     {value == 1 &&
                         <MapView />
