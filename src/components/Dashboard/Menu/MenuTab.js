@@ -23,9 +23,9 @@ export default function MenuTab(props) {
         textColor="primary"
         centered
       >
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
+        <Tab label="Table List" />
+        <Tab label="Map" />
+        <Tab label="Preferences" />
       </Tabs>
     </Paper>
   );

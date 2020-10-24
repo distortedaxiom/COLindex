@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -20,9 +20,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { blue } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
+  stateLink: {
+    color: 'blue',
+    cursor: 'pointer'
+  },
   root: {
     width: '100%',
   },
@@ -80,13 +85,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark,
+      },
   title: {
     flex: '1 1 100%',
   },
@@ -107,10 +112,10 @@ const EnhancedTableToolbar = (props) => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Nutrition
-        </Typography>
-      )}
+          <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+            Nutrition
+          </Typography>
+        )}
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -119,12 +124,12 @@ const EnhancedTableToolbar = (props) => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
-          <IconButton aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
+          <Tooltip title="Filter list">
+            <IconButton aria-label="filter list">
+              <FilterListIcon />
+            </IconButton>
+          </Tooltip>
+        )}
     </Toolbar>
   );
 };
@@ -138,6 +143,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
+  console.log(props)
   const { classes, order, orderBy, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -174,41 +180,45 @@ function EnhancedTableHead(props) {
 
 export default function TableList(props) {
 
-    const [propsData, setPropsData] = useState([])
-    const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('state');
-    const [selected, setSelected] = React.useState([]);
-    const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
-    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [propsData, setPropsData] = useState([])
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('state');
+  const [selected, setSelected] = React.useState([]);
+  const [page, setPage] = React.useState(0);
+  const [dense, setDense] = React.useState(false);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-    const handleRequestSort = (event, property) => {
-      const isAsc = orderBy === property && order === 'asc';
-      setOrder(isAsc ? 'desc' : 'asc');
-      setOrderBy(property);
-    };
+  const handleRequestSort = (event, property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const data = props.data.data
+  const data = props.data.data
 
-    console.log(orderBy)
+  console.log(orderBy)
 
-    return (
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+  const handleStateClick = () => {
+
+  }
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
         <EnhancedTableHead
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={handleRequestSort}
-            />
-          <TableBody>
-            {stableSort(data, getComparator(order, orderBy))
-              .map((data, index) => (
-                <TableRow key={data.state}>
-                <TableCell component="th" scope="row">
+          classes={classes}
+          numSelected={selected.length}
+          order={order}
+          orderBy={orderBy}
+          onRequestSort={handleRequestSort}
+        />
+        <TableBody>
+          {stableSort(data, getComparator(order, orderBy))
+            .map((data, index) => (
+              <TableRow key={data.state}>
+                <TableCell component="th" scope="row" className={classes.stateLink} onClick={() => { handleStateClick() }}>
                   {data.state}
                 </TableCell>
                 <TableCell align="right">{data.livingwage1a0c_avg}</TableCell>
@@ -216,10 +226,10 @@ export default function TableList(props) {
                 <TableCell align="right">{data.povertywage1a0c_avg}</TableCell>
                 <TableCell align="right">{data.reqincomeaftertaxes1a0c_avg}</TableCell>
               </TableRow>
-              ))
-            }
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
+            ))
+          }
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
