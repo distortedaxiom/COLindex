@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App';
+import {
+  BrowserRouter as Router,
+  Route,
+  useHistory,
+  Switch,
+} from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import store from './state';
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <App />,
+  <Router>
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  </Router>,
   document.getElementById('root')
 );
 
