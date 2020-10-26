@@ -1,3 +1,3 @@
-import * as stateData from './stateAction';
+import * as colData from './dataAction';
 
-export { stateData }
+export { colData }
