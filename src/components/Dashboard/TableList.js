@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
+import { connect } from 'react-redux';
+
+import { getStateData } from '../../state/actions/dataAction'
+
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -143,7 +148,6 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  console.log(props)
   const { classes, order, orderBy, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -178,7 +182,7 @@ function EnhancedTableHead(props) {
   );
 }
 
-export default function TableList(props) {
+const TableList = (props) => {
 
   const [propsData, setPropsData] = useState([])
   const [order, setOrder] = React.useState('asc');
@@ -198,10 +202,8 @@ export default function TableList(props) {
 
   const data = props.data.data
 
-  console.log(orderBy)
-
-  const handleStateClick = () => {
-
+  const handleStateClick = (selected) => {
+    props.getStateData(selected)
   }
 
   return (
@@ -218,7 +220,7 @@ export default function TableList(props) {
           {stableSort(data, getComparator(order, orderBy))
             .map((data, index) => (
               <TableRow key={data.state}>
-                <TableCell component="th" scope="row" className={classes.stateLink} onClick={() => { handleStateClick() }}>
+                <TableCell component="th" scope="row" className={classes.stateLink} onClick={() => { handleStateClick(data.state) }}>
                   {data.state}
                 </TableCell>
                 <TableCell align="right">{data.livingwage1a0c_avg}</TableCell>
@@ -233,3 +235,11 @@ export default function TableList(props) {
     </TableContainer>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    state_data: state.state_data
+  }
+}
+
+export default connect(mapStateToProps, { getStateData })(TableList)

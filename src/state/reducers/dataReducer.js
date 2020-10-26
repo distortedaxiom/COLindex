@@ -14,5 +14,7 @@ export const reducer = (state = initialState, action) => {
                 adminLevel: 'state',
                 stateData: action.payload
             }
+        default:
+            return state;
     }
 }

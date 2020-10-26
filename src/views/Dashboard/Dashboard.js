@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from '../../components/Header/Header'
@@ -21,21 +21,19 @@ export default function Dashboard(props) {
 
     useEffect(async () => {
         await axios.get('https://colindex-api.herokuapp.com/api/states/')
-        .then(res => {
-            setStateData(res.data)
-        })
+            .then(res => {
+                setStateData(res.data)
+            })
     }, [])
-
-    console.log(stateData)
 
     return (
         <div>
             <Header />
             <div className="dashboard-body-container">
                 <div className="map-menu-container">
-                    <MenuTab tabChange={tabChange} value={value}/>
+                    <MenuTab tabChange={tabChange} value={value} />
                     {value == 0 &&
-                        <TableListView data={stateData}/>
+                        <TableListView data={stateData} />
                     }
                     {value == 1 &&
                         <MapView />
