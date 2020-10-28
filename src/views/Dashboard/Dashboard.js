@@ -8,7 +8,7 @@ import TableListView from '../Dashboard/TableListView'
 import MapView from '../Dashboard/Map/MapView'
 import PreferencesView from './PreferencesView'
 
-import Sidebar from '../../components/Dashboard/Sidebar'
+import Sidebar from '../../components/Dashboard/Sidebar/Sidebar'
 
 export default function Dashboard(props) {
 
