@@ -1,8 +1,11 @@
-import React, {useState} from "react";
-import { Map, Marker, TileLayer, GeoJSON, Popup } from 'react-leaflet'
+import React, { useState } from "react";
+import { Map, Marker, TileLayer, GeoJSON, Popup, FeatureGroup } from 'react-leaflet'
+
 import ReactDOMServer from 'react-dom/server';
+
 import 'leaflet/dist/leaflet.css';
 import '../../../css/App.css'
+
 import statejson from "../../../assets/geojson/states_outline.json";
 import countyjson from "../../../assets/geojson/counties_outline.json";
 
@@ -16,10 +19,8 @@ export default function MapView(props) {
 
     const [zoomLevel, setZoomLevel] = useState()
 
-    const eachFeature = (feature = {}, layer) => {
-        const { properties = {}} = feature
-        const { NAME, STATE } = properties
-        layer.bindPopup(`<p>${NAME}, ${STATE}</p>`)
+    const handleClick = (e) => {
+        console.log("helllo")
     }
 
     const getRandomColor = (stateNumber) => {
@@ -137,28 +138,42 @@ export default function MapView(props) {
     }
 
     return (
-            <div className="leaflet-container">
-                <Map center={[viewport.lat, viewport.lng]} zoom={viewport.zoom} style={{height : '100vh'}} onZoom={(e) => { setZoomLevel(e.target._zoom)}}>
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    />
-                    <GeoJSON data={statejson} onEachFeature={eachFeature} style={(feature) => {
-                        return {
-                            color: getRandomColor(feature.properties.STATE),
-                            weight: 1.5,
-                            opacity: 0.5
-                        }
-                    }}/>
-                    {zoomLevel >= 7 ?  <GeoJSON data={countyjson} onEachFeature={eachFeature} style={(feature) => {
-                        return {
-                            color: "#000000",
-                            weight: 0.5,
-                            opacity: 0.8
-                        }
-                    }}/> : <div></div>}
-                </Map>
-            </div>
+        <div className="leaflet-container">
+            <Map center={[viewport.lat, viewport.lng]} zoom={viewport.zoom} style={{ height: '100vh' }} onZoom={(e) => { setZoomLevel(e.target._zoom) }}>
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                />
+                {statejson.features.map((feature, index) => {
+                    return (
+                        <FeatureGroup>
+                            <Popup>
+                                <h3>{feature.properties.NAME}</h3>
+                            </Popup>
+                            <GeoJSON data={feature} style={(feature) => {
+                                return {
+                                    color: getRandomColor(feature.properties.STATE),
+                                    weight: 1.5,
+                                    opacity: 0.5
+                                }
+                            }}>
+                            </GeoJSON>
+                        </FeatureGroup>
+                    )
+                })}
+                {zoomLevel >= 7 ?
+                    <FeatureGroup>
+                        <GeoJSON data={countyjson} style={(feature) => {
+                            return {
+                                color: "#000000",
+                                weight: 0.5,
+                                opacity: 0.8
+                            }
+                        }} />
+                    </FeatureGroup>
+                    : <div></div>}
+            </Map>
+        </div>
     )
 
 }
