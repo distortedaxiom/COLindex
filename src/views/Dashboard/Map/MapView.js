@@ -162,15 +162,24 @@ export default function MapView(props) {
                     )
                 })}
                 {zoomLevel >= 7 ?
-                    <FeatureGroup>
-                        <GeoJSON data={countyjson} style={(feature) => {
-                            return {
-                                color: "#000000",
-                                weight: 0.5,
-                                opacity: 0.8
-                            }
-                        }} />
-                    </FeatureGroup>
+                    <div>
+                        {countyjson.features.map((feature, index) => {
+                            return (
+                                <FeatureGroup>
+                                    <Popup>
+                                        <h3>{feature.properties.NAME}</h3>
+                                    </Popup>
+                                    <GeoJSON data={feature} style={(feature) => {
+                                        return {
+                                            color: "#000000",
+                                            weight: 0.5,
+                                            opacity: 0.8
+                                        }
+                                    }} />
+                                </FeatureGroup>
+                            )
+                        })}
+                    </div>
                     : <div></div>}
             </Map>
         </div>
