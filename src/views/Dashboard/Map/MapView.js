@@ -149,6 +149,7 @@ export default function MapView(props) {
                         <FeatureGroup>
                             <Popup>
                                 <h3>{feature.properties.NAME}</h3>
+                                <button onClick={() => handleClick()}>More details</button>
                             </Popup>
                             <GeoJSON data={feature} style={(feature) => {
                                 return {
