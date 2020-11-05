@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import { connect } from 'react-redux';
+
 import { Map, Marker, TileLayer, GeoJSON, Popup, FeatureGroup } from 'react-leaflet'
 
 import ReactDOMServer from 'react-dom/server';
@@ -9,7 +12,7 @@ import '../../../css/App.css'
 import statejson from "../../../assets/geojson/states_outline.json";
 import countyjson from "../../../assets/geojson/counties_outline.json";
 
-export default function MapView(props) {
+function MapView(props) {
 
     const [viewport, setViewPort] = useState({
         lat: 39.81,
@@ -185,5 +188,12 @@ export default function MapView(props) {
             </Map>
         </div>
     )
-
 }
+
+const mapStateToProps = state => {
+    return {
+        state_data: state.state_data
+    }
+}
+
+export default connect(mapStateToProps)(MapView)
