@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { connect } from 'react-redux';
+import { getStateData } from '../../../state/actions/dataAction'
 
 import { Map, Marker, TileLayer, GeoJSON, Popup, FeatureGroup } from 'react-leaflet'
 
@@ -22,8 +23,9 @@ function MapView(props) {
 
     const [zoomLevel, setZoomLevel] = useState()
 
-    const handleClick = (e) => {
-        console.log("helllo")
+    const handleClick = (selected) => {
+        console.log("running")
+        props.getStateData(selected)
     }
 
     const getRandomColor = (stateNumber) => {
@@ -152,7 +154,7 @@ function MapView(props) {
                         <FeatureGroup>
                             <Popup>
                                 <h3>{feature.properties.NAME}</h3>
-                                <button onClick={() => handleClick()}>More details</button>
+                                <button onClick={() => handleClick(feature.properties.NAME)}>More details</button>
                             </Popup>
                             <GeoJSON data={feature} style={(feature) => {
                                 return {
@@ -196,4 +198,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(MapView)
+export default connect(mapStateToProps, { getStateData })(MapView)
