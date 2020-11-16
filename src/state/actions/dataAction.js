@@ -20,3 +20,18 @@ export const getStateData = (state) => async dispatch => {
         })
     }
 };
+
+export const getCountyData = (state) => async dispatch => {
+    try {
+        const res = await axios.get(`https://colindex-api.herokuapp.com/api/counties/${state}`);
+        dispatch({
+            type: GET_COUNTY_DATA,
+            payload: res.data
+        });
+    } catch (e) {
+        dispatch({
+            type: GET_COUNTY_DATA_ERROR,
+            payload: console.log(e),
+        })
+    }
+};

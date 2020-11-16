@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 
 const SidebarDisplay = (props) => {
     console.log(props.data)
@@ -31,6 +32,9 @@ const SidebarDisplay = (props) => {
                     </div>
                     <div>
                         <h4>Other: ${props.data.other1a0c_avg}</h4>
+                    </div>
+                    <div>
+                        <Button variant="contained" color="primary">View Counties</Button>
                     </div>
                 </div>
             </div>
