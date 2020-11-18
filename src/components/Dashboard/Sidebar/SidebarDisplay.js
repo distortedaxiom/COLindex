@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
+
+import { connect } from 'react-redux';
+import { getCountyData } from '../../../state/actions/dataAction'
+
 import Button from '@material-ui/core/Button';
 
 const SidebarDisplay = (props) => {
-    console.log(props.data)
+
+    const getCounty = (state) => {
+        props.getCountyData(state)
+    }
+
     return (
         <div>
             <div>
@@ -34,7 +42,7 @@ const SidebarDisplay = (props) => {
                         <h4>Other: ${props.data.other1a0c_avg}</h4>
                     </div>
                     <div>
-                        <Button variant="contained" color="primary">View Counties</Button>
+                        <Button variant="contained" color="primary" onClick={() => getCounty(props.data.state)}>View Counties</Button>
                     </div>
                 </div>
             </div>
@@ -42,4 +50,10 @@ const SidebarDisplay = (props) => {
     )
 }
 
-export default SidebarDisplay
+const mapStateToProps = state => {
+    return {
+        state_data: state.state_data
+    }
+}
+
+export default connect(mapStateToProps, { getCountyData })(SidebarDisplay)
