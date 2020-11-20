@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { connect } from 'react-redux';
+import { getAllStateData } from '../../state/actions/dataAction'
 
 import Header from '../../components/Header/Header'
 import MenuTab from '../../components/Dashboard/Menu/MenuTab'
@@ -12,7 +13,7 @@ import PreferencesView from './PreferencesView'
 
 import Sidebar from '../../components/Dashboard/Sidebar/Sidebar'
 
-export default function Dashboard(props) {
+const Dashboard = (props) => {
 
     const [value, setValue] = useState(0)
     const [stateData, setStateData] = useState([])
@@ -21,12 +22,11 @@ export default function Dashboard(props) {
         setValue(newValue)
     }
 
-    useEffect(async () => {
-        await axios.get('https://colindex-api.herokuapp.com/api/states/')
-            .then(res => {
-                setStateData(res.data)
-            })
+    useEffect(() => {
+        props.getAllStateData()
     }, [])
+
+    console.log(props.data.allStateData)
 
     return (
         <div>
@@ -35,7 +35,7 @@ export default function Dashboard(props) {
                 <div className="map-menu-container">
                     <MenuTab tabChange={tabChange} value={value} />
                     {value == 0 &&
-                        <TableListView data={stateData} />
+                        <TableListView data={props.data.allStateData} />
                     }
                     {value == 1 &&
                         <MapView />
@@ -51,3 +51,12 @@ export default function Dashboard(props) {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        data: state.data
+    }
+}
+
+
+export default connect(mapStateToProps, { getAllStateData })(Dashboard)
