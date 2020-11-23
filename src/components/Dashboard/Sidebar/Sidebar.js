@@ -156,7 +156,6 @@ const SideBar = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     state_data: state.data
   }

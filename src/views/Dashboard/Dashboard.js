@@ -8,6 +8,7 @@ import Header from '../../components/Header/Header'
 import MenuTab from '../../components/Dashboard/Menu/MenuTab'
 
 import TableListView from '../Dashboard/TableListView'
+import CountyTable from '../../components/Dashboard/Table/CountyTable'
 import MapView from '../Dashboard/Map/MapView'
 import PreferencesView from './PreferencesView'
 
@@ -26,8 +27,6 @@ const Dashboard = (props) => {
         props.getAllStateData()
     }, [])
 
-    console.log(props.data.allStateData)
-
     return (
         <div>
             <Header />
@@ -35,7 +34,8 @@ const Dashboard = (props) => {
                 <div className="map-menu-container">
                     <MenuTab tabChange={tabChange} value={value} />
                     {value == 0 &&
-                        <TableListView data={props.data.allStateData} />
+                        <div>{(props.data.adminLevel == 'county') ? <div><CountyTable data={props.data.countyData} /> </div>
+                            : <div><TableListView data={props.data.allStateData} /> </div>} </div>
                     }
                     {value == 1 &&
                         <MapView />

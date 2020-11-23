@@ -3,7 +3,7 @@ import { colData } from '../actions/index'
 const initialState = {
     allStateData: [],
     stateData: {},
-    countyData: {},
+    countyData: [],
     adminLevel: 'state',
     currentLoc: '',
 }
