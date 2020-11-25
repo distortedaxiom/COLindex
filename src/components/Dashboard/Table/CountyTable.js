@@ -200,7 +200,7 @@ const CountyTable = (props) => {
 
     const data = props.data
 
-    console.log(props.data)
+    console.log(data)
 
     return (
         <TableContainer component={Paper}>
@@ -215,14 +215,14 @@ const CountyTable = (props) => {
                 <TableBody>
                     {stableSort(data, getComparator(order, orderBy))
                         .map((data, index) => (
-                            <TableRow key={data.state}>
+                            <TableRow key={data.county}>
                                 <TableCell component="th" scope="row" className={classes.stateLink}>
-                                    {data.state}
+                                    {data.county}
                                 </TableCell>
-                                <TableCell align="right">{data.livingwage1a0c_avg}</TableCell>
-                                <TableCell align="right">{data.minimumwage1a0c_avg}</TableCell>
-                                <TableCell align="right">{data.povertywage1a0c_avg}</TableCell>
-                                <TableCell align="right">{data.reqincomeaftertaxes1a0c_avg}</TableCell>
+                                <TableCell align="right">{data.livingwage1a0c}</TableCell>
+                                <TableCell align="right">{data.minimumwage1a0c}</TableCell>
+                                <TableCell align="right">{data.povertywage1a0c}</TableCell>
+                                <TableCell align="right">{data.reqincomeaftertaxes1a0c}</TableCell>
                             </TableRow>
                         ))
                     }
