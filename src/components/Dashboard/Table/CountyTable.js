@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
+import { getAllStateData } from '../../../state/actions/dataAction'
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -197,6 +198,10 @@ const CountyTable = (props) => {
         setOrderBy(property);
     };
 
+    const allStateClick = (props) => {
+        props.getAllStateData()
+    }
+
     const classes = useStyles();
 
     const data = props.data
@@ -206,7 +211,7 @@ const CountyTable = (props) => {
     return (
         <TableContainer component={Paper}>
             <div>
-                <Button color="secondary">View States</Button>
+                <Button color="secondary" onClick={() => allStateClick(props)}>View States</Button>
             </div>
             <Table className={classes.table} aria-label="simple table">
                 <EnhancedTableHead
@@ -242,4 +247,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(CountyTable)
+export default connect(mapStateToProps, { getAllStateData })(CountyTable)
