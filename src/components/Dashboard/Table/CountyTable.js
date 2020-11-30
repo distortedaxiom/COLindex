@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -139,10 +140,10 @@ const EnhancedTableToolbar = (props) => {
 
 const headCells = [
     { id: 'state', numeric: false, disablePadding: true, label: 'State' },
-    { id: 'livingwage1a0c_avg', numeric: true, disablePadding: false, label: 'Living Wage' },
-    { id: 'minimumwage1a0c_avg', numeric: true, disablePadding: false, label: 'Minimum Wage' },
-    { id: 'povertywage1a0c_avg', numeric: true, disablePadding: false, label: 'Poverty Wage' },
-    { id: 'reqincomeaftertaxes1a0c_avg', numeric: true, disablePadding: false, label: 'Required Income After Tax' },
+    { id: 'livingwage1a0c', numeric: true, disablePadding: false, label: 'Living Wage' },
+    { id: 'minimumwage1a0c', numeric: true, disablePadding: false, label: 'Minimum Wage' },
+    { id: 'povertywage1a0c', numeric: true, disablePadding: false, label: 'Poverty Wage' },
+    { id: 'reqincomeaftertaxes1a0c', numeric: true, disablePadding: false, label: 'Required Income After Tax' },
 ];
 
 function EnhancedTableHead(props) {
@@ -204,6 +205,9 @@ const CountyTable = (props) => {
 
     return (
         <TableContainer component={Paper}>
+            <div>
+                <Button color="secondary">View States</Button>
+            </div>
             <Table className={classes.table} aria-label="simple table">
                 <EnhancedTableHead
                     classes={classes}
