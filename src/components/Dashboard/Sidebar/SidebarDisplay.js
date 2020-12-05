@@ -11,6 +11,8 @@ const SidebarDisplay = (props) => {
         props.getCountyData(state)
     }
 
+    console.log(props.data)
+
     return (
         <div>
             <div>

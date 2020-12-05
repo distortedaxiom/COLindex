@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
-import SidebarDisplay from './SidebarDisplay'
+import SidebarDisplayContainer from './SidebarDisplayContainer'
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -127,7 +127,7 @@ const SideBar = (props) => {
         <div className={classes.drawerHeader} />
         <div>
           {(propsData.state_data.stateData[0] || propsData.state_data.countyData[0]) ?
-            <SidebarDisplay data={propsData.state_data.stateData[0]} />
+            <SidebarDisplayContainer />
             :
             <div>
               <h2>Select a state or county from the table / map to view detailed information about its location</h2>

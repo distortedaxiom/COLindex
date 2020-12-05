@@ -5,6 +5,8 @@ import { getCountyData } from '../../../state/actions/dataAction'
 
 const SidebarDisplay = (props) => {
 
+    console.log(props)
+
     return (
         <div>
             <div>
