@@ -3,7 +3,8 @@ import { colData } from '../actions/index'
 const initialState = {
     allStateData: [],
     stateData: {},
-    countyData: [],
+    countiesData: [],
+    countyData: {},
     adminLevel: 'state',
     currentLoc: '',
 }
@@ -20,13 +21,20 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 adminLevel: 'state',
-                stateData: action.payload
+                stateData: action.payload,
+                countyData: {}
             }
         case colData.GET_COUNTY_DATA:
             return {
                 ...state,
                 adminLevel: 'county',
-                countyData: action.payload
+                countiesData: action.payload
+            }
+        case colData.GET_SPECIFIC_COUNTY_DATA:
+            return {
+                ...state,
+                countyData: action.payload,
+                stateData: {}
             }
         default:
             return state;

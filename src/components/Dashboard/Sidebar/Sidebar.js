@@ -126,7 +126,7 @@ const SideBar = (props) => {
       >
         <div className={classes.drawerHeader} />
         <div>
-          {propsData.state_data.stateData[0] ?
+          {(propsData.state_data.stateData[0] || propsData.state_data.countyData[0]) ?
             <SidebarDisplay data={propsData.state_data.stateData[0]} />
             :
             <div>

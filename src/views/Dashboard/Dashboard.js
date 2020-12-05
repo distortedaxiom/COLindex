@@ -34,7 +34,7 @@ const Dashboard = (props) => {
                 <div className="map-menu-container">
                     <MenuTab tabChange={tabChange} value={value} />
                     {value == 0 &&
-                        <div>{(props.data.adminLevel == 'county') ? <div><CountyTable data={props.data.countyData} /> </div>
+                        <div>{(props.data.adminLevel == 'county') ? <div><CountyTable data={props.data.countiesData} /> </div>
                             : <div><TableListView data={props.data.allStateData} /> </div>} </div>
                     }
                     {value == 1 &&

@@ -202,6 +202,10 @@ const CountyTable = (props) => {
         props.getAllStateData()
     }
 
+    const handleCountyClick = (selected) => {
+        props.getStateData(selected)
+    }
+
     const classes = useStyles();
 
     const data = props.data
