@@ -31,6 +31,7 @@ export const reducer = (state = initialState, action) => {
                 countiesData: action.payload
             }
         case colData.GET_SPECIFIC_COUNTY_DATA:
+            console.log(action.payload)
             return {
                 ...state,
                 countyData: action.payload,

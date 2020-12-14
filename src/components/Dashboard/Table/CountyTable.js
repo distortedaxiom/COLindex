@@ -203,8 +203,8 @@ const CountyTable = (props) => {
         props.getAllStateData()
     }
 
-    const handleCountyClick = (selected) => {
-        props.getStateData(selected)
+    const getSpecificCountyData = (state, county) => {
+        props.getSpecificCountyData(state, county)
     }
 
     const classes = useStyles();
@@ -230,7 +230,7 @@ const CountyTable = (props) => {
                     {stableSort(data, getComparator(order, orderBy))
                         .map((data, index) => (
                             <TableRow key={data.county}>
-                                <TableCell component="th" scope="row" className={classes.stateLink}>
+                                <TableCell component="th" scope="row" className={classes.stateLink} onClick={() => getSpecificCountyData(data.state, data.county)}>
                                     {data.county}
                                 </TableCell>
                                 <TableCell align="right">{data.livingwage1a0c}</TableCell>
@@ -252,4 +252,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getAllStateData })(CountyTable)
+export default connect(mapStateToProps, { getSpecificCountyData })(CountyTable)
