@@ -252,4 +252,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getSpecificCountyData })(CountyTable)
+export default connect(mapStateToProps, { getSpecificCountyData, getAllStateData })(CountyTable)
