@@ -22,22 +22,24 @@ export default function Header(props) {
     return (
         <AppBar className={classes.appBar}>
             <Toolbar className={classes.container}>
-            <Button className={classes.title} variant="h6">
-                COL Index
-            </Button>
-            <Grid>
-                <Link to='/dashboard'>
-                <Button color="inherit">
-                    Dashboard
+                <Button className={classes.title} variant="h6">
+                    <Link to='/' className={classes.titleLink}>
+                        COL Index
+                    </Link>
                 </Button>
-                </Link>
-                <Button color="inherit">
-                    Login
+                <Grid>
+                    <Button color="inherit">
+                        <Link to='/dashboard' className={classes.navLink}>
+                            Dashboard
+                        </Link>
+                    </Button>
+                    <Button color="inherit" className={classes.navLink}>
+                        Login
                 </Button>
-                <Button color="inherit">
-                    About
+                    <Button color="inherit" className={classes.navLink}>
+                        About
                 </Button>
-            </Grid>
+                </Grid>
             </Toolbar>
         </AppBar>
     )
