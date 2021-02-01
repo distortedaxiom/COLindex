@@ -34,9 +34,6 @@ export default function Header(props) {
                         </Link>
                     </Button>
                     <Button color="inherit" className={classes.navLink}>
-                        Login
-                </Button>
-                    <Button color="inherit" className={classes.navLink}>
                         About
                 </Button>
                 </Grid>

@@ -14,8 +14,6 @@ export default function ActionContainer(props) {
             <div className={classes.wrapper}>
                 <h3>Get started with the app here!</h3>
                 <button>Dashboard</button>
-                <h4>Already have an account?</h4>
-                <button>Login</button>
             </div>
         </div>
     )
