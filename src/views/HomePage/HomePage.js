@@ -8,6 +8,11 @@ import Parrallax from '../../components/Parallax/Parallax'
 import GridContainer from '../../components/Grid/GridContainer'
 import GridItem from '../../components/Grid/GridItem'
 import ActionContainer from '../../components/Parallax/ActionContainer'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 import styles from '../../style/Components'
 import ActionStyle from "../../style/Parrallax/ActionContainerStyle";
@@ -28,19 +33,36 @@ export default function HomePage(props) {
                                 <h1 className={classes.title}>Cost of Living Index</h1>
                                 <h3 className={classes.subtitle}>
                                     Compare wages and cost in cities across the United States
-                        </h3>
+                                </h3>
+                                <div className={classes.CTAbtnContainer}>
+                                    <Button size="large" variant="outlined" className={classes.CTAbtn}>
+                                        Get Started
+                                    </Button>
+                                </div>
                             </div>
                         </GridItem>
                     </GridContainer>
                 </div>
-                <div className={classes.container}>
-                    <GridContainer>
-                        <GridItem>
-                            <ActionContainer />
-                        </GridItem>
-                    </GridContainer>
-                </div>
             </Parrallax>
+            <GridItem className={classes.homePageBulletsContainer}>
+                <div className={classes.homePageBullets}>
+                    <Card className={classes.cardRoot}>
+                        <div>
+                            <h2>Item 1</h2>
+                        </div>
+                    </Card>
+                    <Card className={classes.cardRoot}>
+                        <div>
+                            <h2>Item 1</h2>
+                        </div>
+                    </Card>
+                    <Card className={classes.cardRoot}>
+                        <div>
+                            <h2>Item 1</h2>
+                        </div>
+                    </Card>
+                </div>
+            </GridItem>
         </div>
     )
 }

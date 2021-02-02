@@ -4,7 +4,7 @@ const containerFluid = {
     marginRight: "auto",
     marginLeft: "10vw",
     width: "100%"
-  };
+};
 
 const container = {
     ...containerFluid,
@@ -42,9 +42,44 @@ const subtitle = {
     margin: "10px 0 0"
 }
 
+const CTAbtnContainer = {
+    marginTop: "1rem"
+}
+
+const CTAbtn = {
+    backgroundColor: "white",
+    color: "black",
+}
+
+const homePageBulletsContainer = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%"
+}
+
+const homePageBullets = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "75%",
+    marginTop: "5%"
+}
+
+const cardRoot = {
+    minWidth: 275,
+    minHeight: 200,
+    marginLeft: "2rem"
+}
+
 export default {
     container,
     brand,
     title,
-    subtitle
+    subtitle,
+    CTAbtnContainer,
+    CTAbtn,
+    homePageBulletsContainer,
+    homePageBullets,
+    cardRoot,
 };
