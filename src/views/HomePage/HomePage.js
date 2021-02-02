@@ -20,25 +20,25 @@ export default function HomePage(props) {
     return (
         <div>
             <Header />
-            <Parrallax image={require('../../assets/images/parrallaxbg8.jpeg')}>
+            <Parrallax image={require('../../assets/images/coolbg2.png')}>
                 <div className={classes.container}>
-                <GridContainer>
-                    <GridItem>
-                    <div className={classes.brand}>
-                        <h1 className={classes.title}>Cost of Living Index</h1>
-                        <h3 className={classes.subtitle}>
-                            Compare wages and cost in cities across the United States
+                    <GridContainer>
+                        <GridItem>
+                            <div className={classes.brand}>
+                                <h1 className={classes.title}>Cost of Living Index</h1>
+                                <h3 className={classes.subtitle}>
+                                    Compare wages and cost in cities across the United States
                         </h3>
-                    </div>
-                    </GridItem>
-                </GridContainer>
+                            </div>
+                        </GridItem>
+                    </GridContainer>
                 </div>
                 <div className={classes.container}>
-                <GridContainer>
-                    <GridItem>
-                        <ActionContainer />
-                    </GridItem>
-                </GridContainer>
+                    <GridContainer>
+                        <GridItem>
+                            <ActionContainer />
+                        </GridItem>
+                    </GridContainer>
                 </div>
             </Parrallax>
         </div>
