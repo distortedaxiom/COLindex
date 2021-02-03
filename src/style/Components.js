@@ -1,3 +1,5 @@
+
+
 const containerFluid = {
     paddingRight: "15px",
     paddingLeft: "15px",
@@ -72,6 +74,10 @@ const cardRoot = {
     marginLeft: "2rem"
 }
 
+const cardImg = {
+    height: 200,
+}
+
 export default {
     container,
     brand,
@@ -82,4 +88,5 @@ export default {
     homePageBulletsContainer,
     homePageBullets,
     cardRoot,
+    cardImg,
 };

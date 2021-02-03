@@ -35,7 +35,7 @@ export default function Header(props) {
                     </Button>
                     <Button color="inherit" className={classes.navLink}>
                         About
-                </Button>
+                    </Button>
                 </Grid>
             </Toolbar>
         </AppBar>

@@ -14,6 +14,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import cityscape from '../../assets/images/cityscape.png'
+
 import styles from '../../style/Components'
 import ActionStyle from "../../style/Parrallax/ActionContainerStyle";
 
@@ -48,7 +50,7 @@ export default function HomePage(props) {
                 <div className={classes.homePageBullets}>
                     <Card className={classes.cardRoot}>
                         <div>
-                            <h2>Item 1</h2>
+                            <img src={cityscape} />
                         </div>
                     </Card>
                     <Card className={classes.cardRoot}>
