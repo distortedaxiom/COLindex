@@ -11,7 +11,7 @@ export default function Parrallax(props) {
 
     const parallaxClasses = classNames({
         [classes.parallax]: true,
-      });
+    });
 
     const { filter, className, children, style, image, small } = props;
 
@@ -21,7 +21,9 @@ export default function Parrallax(props) {
             style={{
                 backgroundImage: "url(" + props.image + ")",
             }}>
-                {children}
+            <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', position: 'absolute', top: '0', width: '100%', height: '100%' }}>
+            </div>
+            {children}
         </div>
     )
 

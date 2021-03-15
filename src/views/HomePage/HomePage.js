@@ -27,7 +27,7 @@ export default function HomePage(props) {
     return (
         <div>
             <Header />
-            <Parrallax image={require('../../assets/images/coolbg2.png')}>
+            <Parrallax image={require('../../assets/images/bg.jpeg')}>
                 <div className={classes.container}>
                     <GridContainer>
                         <GridItem>
