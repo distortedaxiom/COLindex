@@ -52,15 +52,18 @@ export default function HomePage(props) {
                         <div>
                             <img src={cityscape} />
                         </div>
-                    </Card>
-                    <Card className={classes.cardRoot}>
-                        <div>
-                            <h2>Item 1</h2>
+                        <div className={classes.cardText}>
+                            <h2>Hello</h2>
                         </div>
                     </Card>
                     <Card className={classes.cardRoot}>
                         <div>
-                            <h2>Item 1</h2>
+                            <img src={cityscape} />
+                        </div>
+                    </Card>
+                    <Card className={classes.cardRoot}>
+                        <div>
+                            <img src={cityscape} />
                         </div>
                     </Card>
                 </div>

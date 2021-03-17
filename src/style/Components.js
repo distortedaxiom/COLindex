@@ -78,6 +78,10 @@ const cardImg = {
     height: 200,
 }
 
+const cardText = {
+    textAlign: 'center'
+}
+
 export default {
     container,
     brand,
@@ -89,4 +93,5 @@ export default {
     homePageBullets,
     cardRoot,
     cardImg,
+    cardText
 };
