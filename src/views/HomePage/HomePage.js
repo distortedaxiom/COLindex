@@ -15,6 +15,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import cityscape from '../../assets/images/cityscape.png'
+import moneyhand from '../../assets/images/moneyhand.png'
+import mapicon from '../../assets/images/mapicon.png'
 
 import styles from '../../style/Components'
 import ActionStyle from "../../style/Parrallax/ActionContainerStyle";
@@ -58,12 +60,12 @@ export default function HomePage(props) {
                     </Card>
                     <Card className={classes.cardRoot}>
                         <div>
-                            <img src={cityscape} />
+                            <img src={moneyhand} />
                         </div>
                     </Card>
                     <Card className={classes.cardRoot}>
                         <div>
-                            <img src={cityscape} />
+                            <img src={mapicon} />
                         </div>
                     </Card>
                 </div>
